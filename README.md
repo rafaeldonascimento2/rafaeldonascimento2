@@ -1,6 +1,7 @@
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&pause=1000&color=ff213f&random=false&width=435&lines=Ol%C3%A1%2C+eu+sou+o+Rafael+do+Nascimento+)](https://git.io/typing-svg)
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=rafaeldonascimento2&label=Profile%20views&color=0e75b6&style=flat" alt="rafaeldonascimento2" /> </p>
 
-### Sobre mim
+### Sobre mim 
 👩🏻‍💻 Estudante de Engenharia de Software <br>
 💻 Em constante aprendizado <br>
 
