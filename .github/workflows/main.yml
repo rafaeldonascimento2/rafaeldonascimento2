@@ -1,0 +1,28 @@
+name: Generate Snake Animation
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Roda todo dia à meia-noite UTC
+
+  workflow_dispatch:  # Permite rodar manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Gerar animação da cobra 🐍
+        uses: Platane/snk@v2
+        with:
+          github_user_name: rafaeldonascimento2
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Commit e Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Atualizando animação da cobra 🐍"
+          branch: output
