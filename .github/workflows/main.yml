@@ -13,16 +13,29 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
+      - name: Configurar Git para commit
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Gerar animação da cobra 🐍
-        uses: Platane/snk@v2
+        uses: Platane/snk@v3
         with:
-          github_user_name: rafaeldonascimento2
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Criar branch output se não existir
+        run: |
+          git fetch
+          if ! git show-ref --quiet refs/heads/output; then
+            git branch output
+          fi
 
       - name: Commit e Push
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Atualizando animação da cobra 🐍"
           branch: output
+          file_pattern: "dist/*"
