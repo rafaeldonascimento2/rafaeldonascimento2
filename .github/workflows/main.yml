@@ -12,11 +12,16 @@ jobs:
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Garante que todas as branches sejam baixadas
 
       - name: Configurar Git para commit
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Criar pasta dist/ (caso não exista)
+        run: mkdir -p dist
 
       - name: Gerar animação da cobra 🐍
         uses: Platane/snk@v3
@@ -26,11 +31,17 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
+      - name: Verificar se os arquivos foram gerados
+        run: ls -l dist/
+
       - name: Criar branch output se não existir
         run: |
-          git fetch
+          git fetch origin output || true
           if ! git show-ref --quiet refs/heads/output; then
-            git branch output
+            git checkout -b output
+            git push origin output
+          else
+            git checkout output
           fi
 
       - name: Commit e Push
@@ -39,3 +50,4 @@ jobs:
           commit_message: "Atualizando animação da cobra 🐍"
           branch: output
           file_pattern: "dist/*"
+          push_options: "--force"
