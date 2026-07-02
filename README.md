@@ -2,7 +2,7 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=rafaeldonascimento2&label=Profile%20views&color=0e75b6&style=flat" alt="rafaeldonascimento2" /> </p>
 
 ### Sobre mim <img src="https://cdn-icons-png.freepik.com/256/5315/5315340.png?semt=ais_hybrid" height="20" width="20" style="margin-left: 10px;">
-👩🏻‍💻 Estudante de Engenharia de Software <br>
+👩🏻‍💻 Engenharia de Software <br>
 💻 Em constante aprendizado <br>
 
 <!-- <h3 align="left">Entre em contato!</h3>
